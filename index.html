@@ -251,6 +251,9 @@ margin: 0 auto;
 
   	var channel_id = 78056;
  	 var api_key = 'DQZDMKSLV8LN41RI';
+
+	var entry_id =0;
+	var getentry_id =0;
 	var watertemp =0;
 	  var ec =0;
 	var  waterflow =0;
@@ -263,6 +266,7 @@ function loadData() {
 
     $.getJSON('https://api.thingspeak.com/channels/' + channel_id + '/feed/last.json?api_key=' + api_key, function(data) {
 
+         entry_id = data.entry_id;
       watertemp = data.field1;
 	  ec = data.field2;
          waterflow = data.field3;
@@ -409,12 +413,14 @@ status_water_cooling = data.field6;
             g4.refresh(temp);
            g5.refresh(humidity);
             loadData();
+           checkedswitch ();
         }, 1000);
 
     });
 
 function checkedswitch () {
-             loadData();
+             
+     if(getentry_id != entry_id){
 	if(waterflow >1){
 	document.getElementById("driver").checked = true;  
 	i=1;
@@ -438,8 +444,9 @@ function checkedswitch () {
 	 document.getElementById("driver3").checked =  false;
 	i3=0;
 	}
-
-	
+         getentry_id = entry_id;
+      }
+      	
 }
 
     //=================================== send data =======================//
@@ -454,7 +461,7 @@ function checkedswitch () {
 
 	if(i == 1){			
                $.post( 
-                  "https://api.thingspeak.com/update?api_key=EOOOXERP74NNPXS2&field1=1",
+                  "https://api.thingspeak.com/update?api_key=EOOOXERP74NNPXS2&field1=1&field4=0",
                   { name: "Zara" },
                   function(data) {
                     $('#stage').html(data);
@@ -467,7 +474,7 @@ function checkedswitch () {
                );
 	} else if(i == 0){ 
 		$.post( 
-                 		 "https://api.thingspeak.com/update?api_key=EOOOXERP74NNPXS2&field1=2",
+                 		 "https://api.thingspeak.com/update?api_key=EOOOXERP74NNPXS2&field1=2&field4=0",
            		       { name: "Zara" },
              		     function(data) {
                 		    $('#stage').html(data);
@@ -488,7 +495,7 @@ function checkedswitch () {
 
 	if(i2 == 1){			
                $.post( 
-                  "https://api.thingspeak.com/update?api_key=EOOOXERP74NNPXS2&field2=1",
+                  "https://api.thingspeak.com/update?api_key=EOOOXERP74NNPXS2&field2=1&field4=0",
                   { name: "Zara" },
                   function(data) {
                     $('#stage').html(data);
@@ -501,7 +508,7 @@ function checkedswitch () {
                );
 	} else if(i2 == 0){ 
 		$.post( 
-                 		 "https://api.thingspeak.com/update?api_key=EOOOXERP74NNPXS2&field2=2",
+                 		 "https://api.thingspeak.com/update?api_key=EOOOXERP74NNPXS2&field2=2&field4=0",
            		       { name: "Zara" },
              		     function(data) {
                 		    $('#stage').html(data);
@@ -522,7 +529,7 @@ function checkedswitch () {
 
 	if(i3 == 1){			
                $.post( 
-                  "https://api.thingspeak.com/update?api_key=EOOOXERP74NNPXS2&field3=1",
+                  "https://api.thingspeak.com/update?api_key=EOOOXERP74NNPXS2&field3=1&field4=0",
                   { name: "Zara" },
                   function(data) {
                     $('#stage').html(data);
@@ -535,7 +542,7 @@ function checkedswitch () {
                );
 	} else if(i3 == 0){ 
 		$.post( 
-                 		 "https://api.thingspeak.com/update?api_key=EOOOXERP74NNPXS2&field3=2",
+                 		 "https://api.thingspeak.com/update?api_key=EOOOXERP74NNPXS2&field3=2&field4=0",
            		       { name: "Zara" },
              		     function(data) {
                 		    $('#stage').html(data);
@@ -581,7 +588,7 @@ function checkedswitch () {
    
 </head>
 
-<body onload="loadData(); checkedswitch();">
+<body onload="checkedswitch();">
 
  <BODY BGCOLOR="#F5F5F5"> 
 
