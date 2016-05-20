@@ -409,7 +409,6 @@ status_water_cooling = data.field6;
             g4.refresh(temp);
            g5.refresh(humidity);
             loadData();
-           checkedswitch();
         }, 1000);
 
     });
@@ -582,7 +581,7 @@ function checkedswitch () {
    
 </head>
 
-<body onload="checkedswitch();">
+<body onload="loadData(); checkedswitch();">
 
  <BODY BGCOLOR="#F5F5F5"> 
 
