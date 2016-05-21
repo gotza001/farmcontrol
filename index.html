@@ -4,9 +4,7 @@
 <head>
 
 <link href="css/css.css" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" 
-
-type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
 
 
     <style>
@@ -302,9 +300,7 @@ status_water_cooling = data.field6;
    stroke: '#ffffff',
    stroke_width: 3,
    stroke_linecap: 'round'
-   } 
-
- 
+   }  
         });
 
         g2 = new JustGage({
@@ -334,9 +330,7 @@ status_water_cooling = data.field6;
    stroke: '#ffffff',
    stroke_width: 3,
    stroke_linecap: 'round'
-   } 
-
- 
+   }  
         });
 
         g3 = new JustGage({
@@ -444,6 +438,12 @@ function checkedswitch () {
 	 document.getElementById("driver3").checked =  false;
 	i3=0;
 	}
+
+	     if(i4 == 1){
+                       document.getElementById("driver4").checked =  false;
+	     i4=0;
+	     }
+
          getentry_id = entry_id;
       }
       	
@@ -572,11 +572,13 @@ function checkedswitch () {
 		document.getElementById("driver4").checked =  false;
 		i4=0;
 		}
-     	        document.getElementById("driver4").checked =  false;
-	        i4=0;
+
                   }
                );
-	} 		
+	} else if (i4 == 0){
+		document.getElementById("driver4").checked =  true;
+		i4=1;
+	     }		
             });	  //end
 
 
@@ -650,7 +652,7 @@ function checkedswitch () {
 
     	 <div class='div4'  >
 		<br> 
-		<div  align=center> <FONT  FONT SIZE=3 COLOR="#1E90FF"> <B>  Read Data   </B></FONT> </div>
+		<div  align=center> <FONT  FONT SIZE=3 COLOR="#1E90FF"> <B>  Read Data now   </B></FONT> </div>
 		<br>
 		<section>
 		<div  align=center >
@@ -674,20 +676,20 @@ function checkedswitch () {
 <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/78056/charts/4?
 
 &timescale=240&days=5&dynamic=true&yaxis=C&title=Temperature"></iframe>
-<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/78056/charts/5?
+<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/78056/charts/5?&timescale=240&days=5&dynamic=true&yaxis=
 
-&timescale=240&days=5&dynamic=true&yaxis=%25&title=Humidity"></iframe>
+%25&title=Humidity"></iframe>
  <BR> 
-<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/78056/charts/1?
+<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/78056/charts/1?&timescale=60&days=3&dynamic=true&yaxis=
 
-&timescale=60&days=3&dynamic=true&yaxis=%E2%84%83&title=Water%20Temperature"></iframe>
-<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/78056/charts/2?
+%E2%84%83&title=Water%20Temperature"></iframe>
+<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/78056/charts/2?&timescale=60&days=3&dynamic=true&yaxis=mS%2Fcm&title=EC
 
-&timescale=60&days=3&dynamic=true&yaxis=mS%2Fcm&title=EC%20Meter"></iframe>
+%20Meter"></iframe>
  <BR> 
-<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/78056/charts/3?
+<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/78056/charts/3?&timescale=15&days=1&dynamic=true&yaxis=L
 
-&timescale=15&days=1&dynamic=true&yaxis=L%2Fhr&title=WaterFlow"></iframe>
+%2Fhr&title=WaterFlow"></iframe>
 <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/78056/charts/6?bgcolor=%23ffffff&color=
 
 %23d62020&dynamic=true&results=20&title=Water+Cooling&type=line&yaxis=1%3DON+-+0%3DOFF"></iframe>
@@ -700,9 +702,9 @@ function checkedswitch () {
      <BR>  <BR>  <BR>  <BR>  
 
 
- <div style="text-align:center;width:350px;margin: 0 auto;">   <iframe src="http://www.zeitverschiebung.net/clock-widget-iframe?
+ <div style="text-align:center;width:350px;margin: 0 auto;">   <iframe src="http://www.zeitverschiebung.net/clock-widget-iframe?language=en&timezone=Asia%2FBangkok" width="100%" 
 
-language=en&timezone=Asia%2FBangkok" width="100%" height="130" frameborder="0" seamless ></iframe>  </div>
+height="130" frameborder="0" seamless ></iframe>  </div>
 
 <div  align=RIGHT>   Design By Boonyarit Chotisatkul </div>
 
